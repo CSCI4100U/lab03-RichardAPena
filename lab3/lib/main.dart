@@ -55,12 +55,14 @@ class TweetWidget {
         ),
         // Second column, TODO: Format
         Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
                 Text(
-                    '$userLongName @$userShortName - $timeString'
+                    '$userLongName @$userShortName - $timeString',
+                    textAlign: TextAlign.left,
                 ),
                 const Icon(Icons.expand_more),
               ],
@@ -70,7 +72,7 @@ class TweetWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                      description,
+                    description,
                     textAlign: TextAlign.left,
                   ),
                 )
@@ -79,6 +81,8 @@ class TweetWidget {
 
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              // textDirection: TextDirection.rtl,
               children: [
                 const Icon(Icons.chat_bubble_outline),
                 Text('$numComments'),
