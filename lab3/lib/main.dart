@@ -49,7 +49,10 @@ class TweetWidget {
         // First column
         Column(
           children: [
-            CircleAvatar(backgroundImage: NetworkImage(imageURL)),
+            CircleAvatar(
+                // backgroundImage: NetworkImage(imageURL)
+                child: Text(userLongName[0]),
+            ),
             // Image(image: imageURL)
           ],
         ),
@@ -61,7 +64,7 @@ class TweetWidget {
             Row(
               children: [
                 Text(
-                    '$userLongName @$userShortName - $timeString',
+                    '$userLongName\t@$userShortName - $timeString',
                     textAlign: TextAlign.left,
                 ),
                 const Icon(Icons.expand_more),
@@ -72,11 +75,24 @@ class TweetWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    description,
+                    '$description\n$imageURL',
                     textAlign: TextAlign.left,
                   ),
-                )
+                ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image(
 
+                    image: NetworkImage(imageURL),
+                  width: 100,
+                  height: 100,
+
+                )
+              ],
+            )
               ],
 
             ),
@@ -85,11 +101,11 @@ class TweetWidget {
               // textDirection: TextDirection.rtl,
               children: [
                 const Icon(Icons.chat_bubble_outline),
-                Text('$numComments'),
+                Text('$numComments\t'),
                 const Icon(Icons.repeat),
-                Text('$numRetweets'),
+                Text('$numRetweets\t'),
                 const Icon(Icons.favorite_border),
-                Text('$numLikes'),
+                Text('$numLikes\t'),
                 const Icon(Icons.bookmark_border)
               ],
             )
